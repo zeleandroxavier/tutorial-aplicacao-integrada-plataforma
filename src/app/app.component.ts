@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { PlatformClient, UsuariosService } from "./app.service";
-import { DadosUsuario } from "./classes"
+import { DadosUsuario, Usuario } from "./classes"
 
 @Component({
   selector: 'app-root',
@@ -14,11 +14,13 @@ import { DadosUsuario } from "./classes"
 export class AppComponent {
   title = 'tutorial-aplicacao-integrada-plataforma';
   dadosUsuario = new DadosUsuario();
+  listaUsuarios: Usuario[] = [];
 
   constructor(private usuarios: UsuariosService) { }
 
   ngOnInit() {
     this.getDadosUsuario();
+    this.getUsuarios();
   }
 
   //Busca os dados do usuário autenticado
@@ -27,4 +29,11 @@ export class AppComponent {
       this.dadosUsuario = data;
     });
   }
+
+  //Busca todos usuários do tenant
+  getUsuarios() {
+    this.usuarios.getUsuarios().subscribe(data => {
+      this.listaUsuarios = data.usuarios as Usuario[];
+    });
+  }  
 }

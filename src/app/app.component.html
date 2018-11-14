@@ -50,5 +50,34 @@
         </div>
       </div>
     </div>
+
+    <div class="card mt-2">
+      <div class="card-header">
+        <div class="float-left">
+          <h4>Usuários cadastrados</h4>
+        </div>
+        <div class="float-right">
+          <button (click)="getUsuarios()" class="btn btn-primary">Atualizar dados</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <table class="table table-hover table-bordered" [hidden]="listaUsuarios.length == 0">
+          <thead>
+            <tr>
+              <th scope="col">Login</th>
+              <th scope="col">Nome completo</th>
+              <th scope="col">E-mail</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let usuario of listaUsuarios; trackBy: index;'>
+              <td>{{usuario.nome}}</td>
+              <td>{{usuario.nomeCompleto}}</td>
+              <td>{{usuario.email}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>

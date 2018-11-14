@@ -29,4 +29,8 @@ export class UsuariosService {
     getDadosUsuario(): Observable<any> {
         return this.client.getPlatformAPI('usuarios/userManager/queries/obterMeusDados');
     }
+
+    getUsuarios(): Observable<any> {
+        return this.client.getPlatformAPI('usuarios/userManager/queries/listaUsuarios');
+    }
 }
