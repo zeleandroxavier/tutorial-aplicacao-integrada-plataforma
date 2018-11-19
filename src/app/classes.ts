@@ -23,3 +23,19 @@ export class Usuario {
     bloqueado: boolean
     papeis: Papel[]
 }
+
+export class Location {
+    protocol: string
+    uri: string
+}
+
+export class RequestUploadResponse {
+    domainName: string
+    serviceName: string
+    areaSecret: string
+    targetObjectId: string
+    version: string
+    token: string
+    fileName: string
+    location: Location
+}
